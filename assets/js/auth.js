@@ -10,7 +10,7 @@ export async function login(email, password) {
 
 export function logout() {
   removeToken();
-  window.location.replace("/pages/login.html");
+  window.location.assign("/pages/login.html");
 }
 
 export function isLoggedIn() {

@@ -38,7 +38,7 @@ export async function call(path, { method, body } = {}) {
   if (response.status == 401 && getToken() !== null && path !== "/auth/login") {
     removeToken();
     window.alert("Erro 401.\nRedirecionando para a página de login");
-    window.location.replace("http://127.0.0.1:5500/pages/login.html");
+    window.location.assign("/pages/login.html");
     return undefined; // Esse return serve para parar a função.
   }
 

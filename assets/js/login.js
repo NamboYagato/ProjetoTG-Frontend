@@ -29,7 +29,6 @@ formCadastro.addEventListener("submit", async (evento) => {
 
   try {
     await cadastrarUsuario(nome.value, email.value, senha.value);
-    window.alert("Cadastro realizado");
     location.reload();
   } catch (e) {
     areaErro.textContent = e.message;

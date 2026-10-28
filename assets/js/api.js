@@ -23,11 +23,17 @@ export async function call(path, { method, body } = {}) {
     myHeaders.append("Authorization", "Bearer " + getToken());
   }
 
-  const response = await fetch(apiUrl + path, {
-    method: method,
-    headers: myHeaders,
-    body: JSON.stringify(body),
-  });
+  let response;
+
+  try {
+    response = await fetch(apiUrl + path, {
+      method: method,
+      headers: myHeaders,
+      body: JSON.stringify(body),
+    });
+  } catch (e) {
+    throw new Error("Não foi possível se comunicar com o servidor");
+  }
 
   if (response.status == 401 && getToken() !== null && path !== "/auth/login") {
     removeToken();

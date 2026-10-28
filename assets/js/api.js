@@ -41,6 +41,7 @@ export async function call(path, { method, body } = {}) {
   }
 
   let data;
+  
   try {
     data = await response.json();
   } catch (e) {
@@ -48,7 +49,10 @@ export async function call(path, { method, body } = {}) {
   }
 
   if (!response.ok) {
-    let message = data !== null && data.mensagem !== undefined ? data.mensagem : `Erro ${response.status}`;
+    let message =
+      data !== null && data.mensagem !== undefined
+        ? data.mensagem
+        : `Erro ${response.status}`;
     throw new Error(message);
   }
 

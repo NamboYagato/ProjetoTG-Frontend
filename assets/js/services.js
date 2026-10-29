@@ -6,3 +6,10 @@ export async function cadastrarUsuario(nome, email, password) {
     body: { nome: nome, email: email, senha: password },
   });
 }
+
+export async function listarMercados(nomeMercado) {
+  const pathMercadosSearch = nomeMercado
+    ? "/mercados?name=" + encodeURIComponent(nomeMercado)
+    : "/mercados";
+  return call(pathMercadosSearch);
+}

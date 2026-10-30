@@ -13,3 +13,7 @@ export async function listarMercados(nomeMercado) {
     : "/mercados";
   return call(pathMercadosSearch);
 }
+
+export function buscarMercado(id) {
+  return call("/mercados/" + id);
+}

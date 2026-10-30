@@ -1,20 +1,11 @@
 import { listarMercados } from "./services.js";
 import { isLoggedIn, logout } from "./auth.js";
+import { nomeCidade } from "./enumFormatter.js";
 
 const campoBusca = document.getElementById("nome_mercado");
 const listMercados = document.getElementById("lista");
 const mensagem = document.getElementById("mensagem");
 const userState = document.getElementById("userState");
-
-const cidades = {
-  CACAPAVA: "Caçapava",
-  SAO_JOSE_DOS_CAMPOS: "São José dos Campos",
-  TAUBATE: "Taubaté",
-};
-
-function nomeCidade(cidade) {
-  return cidades[cidade] || cidade;
-}
 
 function userStateChangeButton() {
   userState.textContent = isLoggedIn() ? "Sair" : "Entrar";

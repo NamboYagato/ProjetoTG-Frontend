@@ -7,7 +7,7 @@ export async function cadastrarUsuario(nome, email, password) {
   });
 }
 
-export async function listarMercados(nomeMercado) {
+export function listarMercados(nomeMercado) {
   const pathMercadosSearch = nomeMercado
     ? "/mercados?name=" + encodeURIComponent(nomeMercado)
     : "/mercados";

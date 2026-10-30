@@ -1,6 +1,7 @@
 import { buscarMercado } from "./services.js";
 import { nomeCidade } from "./enumFormatter.js";
-import { isLoggedIn, logout } from "./auth.js";
+import { isLoggedIn } from "./auth.js";
+import { setupSessionButton } from "./sessionButton.js";
 
 const nome = document.getElementById("nome");
 const endereco = document.getElementById("endereco");
@@ -9,15 +10,6 @@ const novoProduto = document.getElementById("novo-produto");
 const mensagem = document.getElementById("mensagem");
 const id = new URLSearchParams(location.search).get("id");
 const userState = document.getElementById("user-state");
-
-function userStateChangeButton() {
-  userState.textContent = isLoggedIn() ? "Sair" : "Entrar";
-  userState.hidden = false;
-}
-
-userState.addEventListener("click", () => {
-  isLoggedIn() ? logout() : location.assign("/pages/login.html");
-});
 
 async function load() {
   mensagem.textContent = "";
@@ -57,5 +49,5 @@ function render(produtos) {
   });
 }
 
-userStateChangeButton();
+setupSessionButton(userState);
 load();

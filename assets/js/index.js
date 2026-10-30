@@ -1,20 +1,11 @@
 import { listarMercados } from "./services.js";
-import { isLoggedIn, logout } from "./auth.js";
 import { nomeCidade } from "./enumFormatter.js";
+import { setupSessionButton } from "./sessionButton.js";
 
-const campoBusca = document.getElementById("nome_mercado");
+const campoBusca = document.getElementById("nome-mercado");
 const listMercados = document.getElementById("lista");
 const mensagem = document.getElementById("mensagem");
-const userState = document.getElementById("userState");
-
-function userStateChangeButton() {
-  userState.textContent = isLoggedIn() ? "Sair" : "Entrar";
-  userState.hidden = false;
-}
-
-userState.addEventListener("click", () => {
-  isLoggedIn() ? logout() : location.assign("/pages/login.html");
-});
+const userState = document.getElementById("user-state");
 
 async function load(name) {
   mensagem.textContent = "";
@@ -50,5 +41,5 @@ campoBusca.addEventListener("input", () => {
   load(campoBusca.value.trim());
 });
 
-userStateChangeButton();
+setupSessionButton(userState);
 load("");

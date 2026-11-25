@@ -17,3 +17,10 @@ export function listarMercados(nomeMercado) {
 export function buscarMercado(id) {
   return call("/mercados/" + id);
 }
+
+export function buscarProdutos(nomeProduto) {
+  const pathProdutosSearch = nomeProduto
+    ? "/produtos?name=" + encodeURIComponent(nomeProduto)
+    : "/produtos";
+  return call(pathProdutosSearch);
+}

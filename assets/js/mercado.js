@@ -10,6 +10,8 @@ const novoProduto = document.getElementById("novo-produto");
 const mensagem = document.getElementById("mensagem");
 const id = new URLSearchParams(location.search).get("id");
 const userState = document.getElementById("user-state");
+const formBuscarProduto = document.getElementById("form-busca-produto");
+const buscarProdutos = formBuscarProduto.querySelector("input[name='name']");
 
 async function load() {
   mensagem.textContent = "";
@@ -49,5 +51,10 @@ function render(produtos) {
   });
 }
 
+formBuscarProduto.addEventListener("submit", () => {
+  if (!buscarProdutos.value.trim()) {
+    buscarProdutos.removeAttribute("name");
+  }
+});
 setupSessionButton(userState);
 load();

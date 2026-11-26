@@ -24,3 +24,7 @@ export function buscarProdutos(nomeProduto) {
     : "/produtos";
   return call(pathProdutosSearch);
 }
+
+export function detalheProduto(id) {
+  return call("/produtos/" + id);
+}

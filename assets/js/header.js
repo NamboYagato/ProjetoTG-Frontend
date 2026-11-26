@@ -7,3 +7,16 @@ export function setupSessionButton(button) {
     isLoggedIn() ? logout() : location.assign("/pages/login.html");
   });
 }
+
+export function setupBackButton(button, defaultPath) {
+  button.addEventListener("click", () => {
+    if (document.referrer) {
+      const origemReferrer = new URL(document.referrer).origin;
+      if (origemReferrer === location.origin) {
+        history.back();
+        return;
+      }
+    }
+    location.assign(defaultPath);
+  });
+}

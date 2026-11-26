@@ -1,7 +1,7 @@
 import { buscarMercado } from "./services.js";
 import { nomeCidade } from "./enumFormatter.js";
 import { isLoggedIn } from "./auth.js";
-import { setupSessionButton } from "./sessionButton.js";
+import { setupSessionButton } from "./header.js";
 
 const nome = document.getElementById("nome");
 const endereco = document.getElementById("endereco");

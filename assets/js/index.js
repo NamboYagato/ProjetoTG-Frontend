@@ -1,6 +1,6 @@
 import { listarMercados } from "./services.js";
 import { nomeCidade } from "./enumFormatter.js";
-import { setupSessionButton } from "./sessionButton.js";
+import { setupSessionButton } from "./header.js";
 
 const campoBusca = document.getElementById("nome-mercado");
 const listMercados = document.getElementById("lista");

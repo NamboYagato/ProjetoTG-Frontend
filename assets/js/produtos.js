@@ -1,5 +1,5 @@
 import { buscarProdutos } from "./services.js";
-import { setupSessionButton } from "./sessionButton.js";
+import { setupSessionButton } from "./header.js";
 
 const userState = document.getElementById("user-state");
 const listaProdutos = document.getElementById("produtos");

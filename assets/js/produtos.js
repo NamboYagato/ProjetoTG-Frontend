@@ -1,10 +1,11 @@
 import { buscarProdutos } from "./services.js";
-import { setupSessionButton } from "./header.js";
+import { setupSessionButton, setupBackButton } from "./header.js";
 
 const userState = document.getElementById("user-state");
 const listaProdutos = document.getElementById("produtos");
 const mensagem = document.getElementById("mensagem");
 const nomeProduto = new URLSearchParams(window.location.search).get("name");
+const backButton = document.getElementById("back-button");
 
 async function load() {
   mensagem.textContent = "";
@@ -32,5 +33,6 @@ function render(produtos) {
   });
 }
 
+setupBackButton(backButton, "/index.html");
 setupSessionButton(userState);
 load();

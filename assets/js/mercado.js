@@ -1,7 +1,7 @@
 import { buscarMercado } from "./services.js";
 import { nomeCidade } from "./enumFormatter.js";
 import { isLoggedIn } from "./auth.js";
-import { setupSessionButton } from "./header.js";
+import { setupSessionButton, setupBackButton } from "./header.js";
 
 const nome = document.getElementById("nome");
 const endereco = document.getElementById("endereco");
@@ -12,6 +12,7 @@ const id = new URLSearchParams(location.search).get("id");
 const userState = document.getElementById("user-state");
 const formBuscarProduto = document.getElementById("form-busca-produto");
 const buscarProdutos = formBuscarProduto.querySelector("input[name='name']");
+const backButton = document.getElementById("back-button");
 
 async function load() {
   mensagem.textContent = "";
@@ -56,5 +57,7 @@ formBuscarProduto.addEventListener("submit", () => {
     buscarProdutos.removeAttribute("name");
   }
 });
+
+setupBackButton(backButton, "/index.html");
 setupSessionButton(userState);
 load();
